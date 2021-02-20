@@ -30,7 +30,9 @@ bot.start((ctx) => {
   );
 
   client.on("userDisconnect", (user) =>
-    ctx.reply(`${user.name} s'est déconnecté de mumble.`)
+    ctx.reply(`${user.name} s'est déconnecté de mumble.`, {
+      disable_notification: true,
+    })
   );
 
   client.on("message", (message) =>
