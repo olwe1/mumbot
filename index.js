@@ -23,10 +23,14 @@ bot.start((ctx) => {
     return ctx.reply("Vous n'êtes pas autorisé à utiliser ce bot.");
   }
 
-  ctx.reply("Bonjour, je relais les activitées de mumble.");
+  ctx.reply("Bonjour, je relais les activitées de mumble.", {
+    disable_notification: true,
+  });
 
   client.on("userJoin", (user) =>
-    ctx.reply(`${user.name} s'est connecté à mumble.`)
+    ctx.reply(`${user.name} s'est connecté à mumble.`, {
+      disable_notification: true,
+    })
   );
 
   client.on("userDisconnect", (user) =>
